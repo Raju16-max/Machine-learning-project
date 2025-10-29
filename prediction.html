@@ -1,0 +1,278 @@
+z<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>LOW BIRTH WEIGHT PREDICTION</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/assets/img/favicon.png" rel="icon">
+<!--  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Sailor - v2.3.1
+  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+<style>
+    label
+    {
+    font-size:20px;
+    font-weight:bold;
+
+    }
+</style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo"><a href="/">Low Birth Weight Prediction</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+       <a href="index.html" class="logo"><img src="static/assets/img/logo.png" alt="" class="img-fluid"></a>
+
+      <nav class="nav-menu d-none d-lg-block">
+
+        <ul>
+          <li><a href="/">Home</a></li>
+          
+          <li class="active"><a href="/prediction">Prediction</a></li>
+
+
+        </ul>
+
+      </nav><!-- .nav-menu -->
+
+
+    </div>
+  </header><!-- End Header -->
+
+  <section id="hero">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+<!--      <div class="carousel-inner" role="listbox">-->
+                  <div class="carousel-item active" style="background-image: url(static/assets/img/baby.jpg)">
+          <div class="carousel-container">
+            <div class="container">
+                        {%block body %}
+                            {% if result == [0] %}
+
+                                    <h3 style="color:white;background:green"><i>The baby belongs to "Low birth Weight"</i></h3>
+                            {% elif result == [1] %}
+                                     <h3 style="color:white;background:green"><i>The baby not belongs to "Low birth Weight"</i></h3>
+
+                             {% endif %}
+                        {% endblock %}
+                      <h3 style="color:white;font-size:30px;font-weight:bold;background-color:blue;width:20%; margin-left:480px; ">Prediction</h3><br>
+                                <form action="{{url_for('prediction')}}" method="post" align="left" style="margin-left:350px;">
+                                        <div class="form-group row">
+                                        <label for="parity" class="col-sm-4 col-form-label" >Parity: </label>
+                                            <div class="col-md-08">
+                                            <select id="Parity"  name="a" class="form-control form-control" style="width:209px;" >
+                                                <option value="select option" class="form-control" >select</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                
+                                               </select>
+                                            </div>
+                                        </div>
+
+                                     <div class="form-group row">
+                                          <label for="age" class="col-sm-4 col-form-label"  >Age of Mother: </label>
+
+                                            <div class="col-sm-08">
+                                           <input type="float"  class="form-control" name="b" id="age" min="18"  max="40"  placeholder="age of mother" required onchange="validateNumber();">
+                                            </div>
+                                        </div>
+                                    <p id="GFG_DOWN" style="color:red">    </p>
+                                      <div class="form-group row">
+                                       <label for="anemia" class="col-sm-4 col-form-label">Anemia: </label>
+                                            <div class="col-sm-08">
+                                                <select id="Anemia" name="c"class="form-control form-control" style="width:209px;">
+                                            <option value="select option">select</option>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                 </select>
+                                            </div>
+                                        </div>
+
+                                     <div class="form-group row">
+                                      <label for="fundal_height_20wk" class="col-sm-4 col-form-label">Fundal_Height_20week(cm): </label>
+                                            <div class="col-sm-08">
+                                             <input type="float"   class="form-control" name="d" id="fundal_height_20wk" placeholder="fundal height at 20 week"  required onchange="validNumber();" >
+                                            </div>
+                                        </div>
+                                    <p id="GFG_DOWN1" style="color:red">    </p>
+                                    <div class="form-group row">
+                                    <label for="asthma" class="col-sm-4 col-form-label">Asthma: </label>
+                                            <div class="col-sm-08">
+                                    <select id="Asthma" class="form-control form-control" style="width:209px;" name="e" >
+                                                <option value="select option">select</option>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                    </select>
+                                            </div>
+                                        </div>
+
+                                    <div class="form-group row">
+                                    <label for="fundal_height_28wk" class="col-sm-4 col-form-label">Fundal_Height_28week(cm): </label>
+                                            <div class="col-sm-08">
+                                    <input type="float" class="form-control" name="f" id="fundal_height_28wk" placeholder="fundal height at 28 week" required onchange="validNum();">
+                                            </div>
+                                        </div>
+                                    <p id="GFG_DOWN2" style="color:red">    </p>
+                                    <div class="form-group row">
+                                    <label for="bad_obs_history" class="col-sm-4 col-form-label">Bad Obstetric History: </label>
+                                            <div class="col-sm-08">
+                                    <select id="Bad Obstetric History" name="g"class="form-control form-control" style="width:209px;" >
+                                                <option value="select option"  >select</option>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                               </select>
+                                            </div>
+                                        </div>
+                                      <div class="form-group row">
+                                    <label for="iron" class="col-sm-4 col-form-label">Iron: </label>
+                                            <div class="col-sm-08">
+                                    <select id="iron" class="form-control form-control" style="width:209px;" name="h" >
+                                      <option value="select option" >select</option>
+                                      <option value="0">0</option>
+                                      <option value="1">1</option>
+                                     </select>
+                                            </div>
+                                        </div>
+                                    <div class="form-group row">
+                                    <label for="bmi" class="col-sm-4 col-form-label">BMI(kg/m²): </label>
+                                            <div class="col-sm-08">
+                                    <input type="float"  class="form-control" name="i" id="bmi" placeholder="BMI" required onchange="validNumb();">
+                                            </div>
+                                        </div>
+                                    <p id="GFG_DOWN3" style="color:red">    </p>
+                                        <div class="col-sm-08" style="margin-left:200px">
+
+                                  <input type="submit" value="Predict" class="btn btn-success">
+                                        </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+  </section>
+
+
+
+
+
+
+          <script src="static/assets/vendor/jquery/jquery.min.js"></script>
+          <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+          <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+          <script src="static/assets/vendor/php-email-form/validate.js"></script>
+          <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+          <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+          <script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+          <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+  <!-- Template Main JS File -->
+          <script src="static/assets/js/main.js"></script>
+<script>
+
+		var down = document.getElementById('GFG_DOWN');
+
+		function validateNumber() {
+			var input = document.getElementById('age');
+			var n = input.value;
+			n = Number(n);
+			if (n <= 40 && n>= 18) {
+				$('#GFG_DOWN').html('');
+				//input.value = 18;
+			}
+			else {
+				$('#GFG_DOWN').html('You typed a invalid number.');
+				//input.value = n;
+			}
+		}
+    </script>
+<script>
+
+		var down = document.getElementById('GFG_DOWN1');
+
+		function validNumber() {
+			var input = document.getElementById('fundal_height_20wk');
+			var n = input.value;
+			n = Number(n);
+			if (n <= 20 && n>= 10) {
+				$('#GFG_DOWN1').html('');
+				//input.value = 10;
+			}
+			else {
+				$('#GFG_DOWN1').html('You typed a invalid number.');
+				//input.value = n;
+			}
+		}
+    </script>
+<script>
+
+		var down = document.getElementById('GFG_DOWN2');
+
+		function validNum() {
+			var input = document.getElementById('fundal_height_28wk');
+			var n = input.value;
+			n = Number(n);
+			if (n <= 28 && n>= 10) {
+				$('#GFG_DOWN2').html('');
+				//input.value = 10;
+			}
+			else {
+				$('#GFG_DOWN2').html('You typed a invalid number.');
+				//input.value = n;
+			}
+		}
+    </script>
+<script>
+
+		var down = document.getElementById('GFG_DOWN3');
+
+		function validNumb() {
+			var input = document.getElementById('bmi');
+			var n = input.value;
+			n = Number(n);
+			if (n <= 30 && n>= 15) {
+				$('#GFG_DOWN3').html('');
+				//input.value = 10;
+			}
+			else {
+				$('#GFG_DOWN3').html('You typed a invalid number.');
+				//input.value = n;
+			}
+		}
+    </script>
+</body>
+
+</html>
